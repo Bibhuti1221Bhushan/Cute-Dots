@@ -19,7 +19,7 @@
 
 <h1 align="center">- Cute Dots -</h1>
 
-> ### <sup><sub><samp>PLEASE RESPECT THE CREDITS IF YOU USE SOMETHING FROM MY SETUP.</samp></sub></sup>
+> ## <sup><sub><samp>PLEASE RESPECT THE CREDITS IF YOU USE SOMETHING FROM MY SETUP.</samp></sub></sup>
 
 ---
 

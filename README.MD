@@ -15,12 +15,13 @@
     <img src="https://img.shields.io/static/v1?label=NIX-OS&message=STABLE&style=for-the-badge&logo=nixos&colorA=24273A&colorB=9173ff&logoColor=8AADF4">
   </a> 
 
-<p align="center"><img src="https://i.imgur.com/NbxQ8MY.png" width=600px></p>
+---
+<!-- <p align="center"><img src="https://i.imgur.com/NbxQ8MY.png" width=600px></p> -->
 
 <h1 align="center">- Cute Dots -</h1>
 
-<br>
-<br>
+---
+
 > ## <sup><sub><samp>PLEASE RESPECT THE CREDITS IF YOU USE SOMETHING FROM MY SETUP.</samp></sub></sup>
 
 ---

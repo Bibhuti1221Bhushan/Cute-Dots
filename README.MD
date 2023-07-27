@@ -20,7 +20,7 @@
 <h1 align="center">- Cute Dots -</h1>
 
 <br>
-
+<br>
 > ## <sup><sub><samp>PLEASE RESPECT THE CREDITS IF YOU USE SOMETHING FROM MY SETUP.</samp></sub></sup>
 
 ---

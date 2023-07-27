@@ -16,15 +16,12 @@
   </a> 
 
 ---
-<!-- <p align="center"><img src="https://i.imgur.com/NbxQ8MY.png" width=600px></p> -->
 
-<h1 align="center">- Cute Dots -</h1>
+<h3 align="center">- Cute Dots -</h3>
 
 ---
 
 > ## <sup><sub><samp>PLEASE RESPECT THE CREDITS IF YOU USE SOMETHING FROM MY SETUP.</samp></sub></sup>
-
----
 
 ## :snowflake: Information
 

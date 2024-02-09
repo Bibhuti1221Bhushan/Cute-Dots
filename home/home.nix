@@ -1,5 +1,4 @@
-{ config, pkgs, inputs, username,
-  gtkThemeFromScheme, ... }:
+{ config, pkgs, inputs, username, ... }:
 let 
   inherit (import ./options.nix)
     gitUsername gitEmail theme browser 

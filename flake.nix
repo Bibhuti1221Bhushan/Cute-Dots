@@ -1,55 +1,62 @@
 {
-  description = "iTunes Configuration";
+  description = "Personal Config";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager/master";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nix-colors.url = "github:misterio77/nix-colors";
-    hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
+    
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    hyprland = {
+      url = "github:hyprwm/hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }:
+  outputs = inputs @ { self, nixpkgs, home-manager, ... }:
+  
   let
-    system = "x86_64-linux";
-    username = "zaney";
-    hostname = "hyprnix";
 
+    username = "Bibhuti";
+    fullname = "Bibhuti Bhushan";
+    hostname = "iTunes";
+
+    system = "x86_64-linux";
+    homeConfigurations = home-manager.nixosModules.home-manager;
+    lib = nixpkgs.lib;
     pkgs = import nixpkgs {
       inherit system;
-      config = {
-	    allowUnfree = true;
-      };
+      config.allowUnfree = true;
     };
+
   in {
+  
     nixosConfigurations = {
-      "${hostname}" = nixpkgs.lib.nixosSystem {
-	specialArgs = { 
-          inherit system; inherit inputs; 
-          inherit username; inherit hostname;
-        };
-	modules = [ 
-	  ./system.nix
-          home-manager.nixosModules.home-manager {
-	    home-manager.extraSpecialArgs = {
-	      inherit username; inherit inputs;
-              inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
-            };
-	    home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-	    home-manager.users.${username} = import ./home.nix;
-	  }
-	];
+      Laptop = lib.nixosSystem {
+	      specialArgs = { inherit inputs username hostname; };
+	      modules = [ ./hosts/configuration.nix 
+            
+    homeConfigurations {
+  	  home-manager = {
+        useGlobalPkgs = true;
+        useUserPackages = true;
+        backupFileExtension = "backup";
+  	    users.${username} = import ./home.nix;
+        extraSpecialArgs = { inherit inputs username; };
+        };       
       };
-    };
+	  ];
   };
 }

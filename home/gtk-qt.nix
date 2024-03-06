@@ -1,12 +1,18 @@
-{ pkgs, config, gtkThemeFromScheme, ... }:
+{ pkgs, config, ... }:
 
 {
+
+  # Define Settings For Xresources
+  # xresources.properties = {
+  #   "Xcursor.size" = 24;
+  # };
+
   # Configure Cursor Theme
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Ice";
+    package = pkgs.breeze-hacked-cursor-theme;
+    name = "Breeze Hacked";
     size = 24;
   };
 
@@ -19,12 +25,21 @@
       package = pkgs.ubuntu_font_family;
     };
     theme = {
-      name = "${config.colorScheme.slug}";
-      package = gtkThemeFromScheme {scheme = config.colorScheme;};
+      name = "Catppuccin-Mocha-Standard-Mauve-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "mauve" ];
+        size = "standard";
+        tweaks = [ "normal" ];
+        variant = "mocha";
+      };
     };
+    # theme = {
+    #   name = "${config.colorScheme.slug}";
+    #   package = gtkThemeFromScheme {scheme = config.colorScheme;};
+    # };
     iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      name = "elementary";
+      package = pkgs.pantheon.elementary-icon-theme;
     };
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme=1;
